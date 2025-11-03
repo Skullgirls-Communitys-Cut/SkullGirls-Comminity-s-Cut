@@ -44,13 +44,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\Skullgirls</OutDir>
     <TargetName>CoreMessaging</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <TargetName>CoreMessaging</TargetName>
-    <OutDir>..\..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\Skullgirls</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -145,6 +143,10 @@
     <ClInclude Include="thread\ScopedLock.h" />
     <ClInclude Include="thread\Thread.h" />
   </ItemGroup>
+  <!-- Custom build settings -->
+  <Import Project="$(SolutionDir)DefaultSettings.props" />
+  <Import Project="$(SolutionDir)LocalOverrides.props" 
+          Condition="Exists('$(SolutionDir)LocalOverrides.props')" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
